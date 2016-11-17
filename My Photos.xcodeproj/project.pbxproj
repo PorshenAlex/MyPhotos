@@ -10,6 +10,10 @@
 		B808E1E61DDE2F6E0093B7D7 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808E1E41DDE2EA20093B7D7 /* AlbumsViewController.swift */; };
 		B808E1E81DDE35EC0093B7D7 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808E1E71DDE35EC0093B7D7 /* AlbumViewController.swift */; };
 		B808E1EA1DDE36CA0093B7D7 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808E1E91DDE36CA0093B7D7 /* PhotoViewController.swift */; };
+		B808E1F31DDE38C80093B7D7 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808E1F11DDE38C80093B7D7 /* PhotoCollectionViewCell.swift */; };
+		B808E1F41DDE38C80093B7D7 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B808E1F21DDE38C80093B7D7 /* PhotoCollectionViewCell.xib */; };
+		B808E1F91DDE3A430093B7D7 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808E1F71DDE3A430093B7D7 /* AlbumCollectionViewCell.swift */; };
+		B808E1FA1DDE3A430093B7D7 /* AlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B808E1F81DDE3A430093B7D7 /* AlbumCollectionViewCell.xib */; };
 		B8E834441DDE20BE00267735 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E834431DDE20BE00267735 /* AppDelegate.swift */; };
 		B8E834491DDE20BE00267735 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E834471DDE20BE00267735 /* Main.storyboard */; };
 		B8E8344B1DDE20BE00267735 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E8344A1DDE20BE00267735 /* Assets.xcassets */; };
@@ -20,6 +24,10 @@
 		B808E1E41DDE2EA20093B7D7 /* AlbumsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumsViewController.swift; path = ViewControllers/AlbumsViewController.swift; sourceTree = "<group>"; };
 		B808E1E71DDE35EC0093B7D7 /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumViewController.swift; path = ViewControllers/AlbumViewController.swift; sourceTree = "<group>"; };
 		B808E1E91DDE36CA0093B7D7 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoViewController.swift; path = ViewControllers/PhotoViewController.swift; sourceTree = "<group>"; };
+		B808E1F11DDE38C80093B7D7 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCollectionViewCell.swift; path = Views/Album/PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		B808E1F21DDE38C80093B7D7 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoCollectionViewCell.xib; path = Views/Album/PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		B808E1F71DDE3A430093B7D7 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumCollectionViewCell.swift; path = Views/Albums/AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		B808E1F81DDE3A430093B7D7 /* AlbumCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlbumCollectionViewCell.xib; path = Views/Albums/AlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		B8E834401DDE20BE00267735 /* My Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Photos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E834431DDE20BE00267735 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8E834481DDE20BE00267735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,6 +47,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B808E1EB1DDE38310093B7D7 /* Albums */ = {
+			isa = PBXGroup;
+			children = (
+				B808E1F71DDE3A430093B7D7 /* AlbumCollectionViewCell.swift */,
+				B808E1F81DDE3A430093B7D7 /* AlbumCollectionViewCell.xib */,
+			);
+			name = Albums;
+			sourceTree = "<group>";
+		};
+		B808E1F01DDE38A00093B7D7 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				B808E1F11DDE38C80093B7D7 /* PhotoCollectionViewCell.swift */,
+				B808E1F21DDE38C80093B7D7 /* PhotoCollectionViewCell.xib */,
+			);
+			name = Album;
+			sourceTree = "<group>";
+		};
 		B8E834371DDE20BE00267735 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +132,8 @@
 		B8E834591DDE257600267735 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B808E1F01DDE38A00093B7D7 /* Album */,
+				B808E1EB1DDE38310093B7D7 /* Albums */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -170,6 +198,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E8344E1DDE20BE00267735 /* LaunchScreen.storyboard in Resources */,
+				B808E1F41DDE38C80093B7D7 /* PhotoCollectionViewCell.xib in Resources */,
+				B808E1FA1DDE3A430093B7D7 /* AlbumCollectionViewCell.xib in Resources */,
 				B8E8344B1DDE20BE00267735 /* Assets.xcassets in Resources */,
 				B8E834491DDE20BE00267735 /* Main.storyboard in Resources */,
 			);
@@ -182,10 +212,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B808E1F91DDE3A430093B7D7 /* AlbumCollectionViewCell.swift in Sources */,
 				B808E1E81DDE35EC0093B7D7 /* AlbumViewController.swift in Sources */,
 				B808E1EA1DDE36CA0093B7D7 /* PhotoViewController.swift in Sources */,
 				B808E1E61DDE2F6E0093B7D7 /* AlbumsViewController.swift in Sources */,
 				B8E834441DDE20BE00267735 /* AppDelegate.swift in Sources */,
+				B808E1F31DDE38C80093B7D7 /* PhotoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
