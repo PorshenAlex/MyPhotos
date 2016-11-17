@@ -54,14 +54,30 @@
 		B8E834421DDE20BE00267735 /* My Photos */ = {
 			isa = PBXGroup;
 			children = (
+				B8E834561DDE238000267735 /* Storyboards */,
+				B8E834551DDE237400267735 /* ViewControllers */,
 				B8E834431DDE20BE00267735 /* AppDelegate.swift */,
-				B8E834451DDE20BE00267735 /* ViewController.swift */,
-				B8E834471DDE20BE00267735 /* Main.storyboard */,
 				B8E8344A1DDE20BE00267735 /* Assets.xcassets */,
-				B8E8344C1DDE20BE00267735 /* LaunchScreen.storyboard */,
 				B8E8344F1DDE20BE00267735 /* Info.plist */,
 			);
 			path = "My Photos";
+			sourceTree = "<group>";
+		};
+		B8E834551DDE237400267735 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B8E834451DDE20BE00267735 /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B8E834561DDE238000267735 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B8E8344C1DDE20BE00267735 /* LaunchScreen.storyboard */,
+				B8E834471DDE20BE00267735 /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
