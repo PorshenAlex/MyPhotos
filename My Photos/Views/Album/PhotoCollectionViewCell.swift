@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoCollectionViewCell: UICollectionViewCell {
+class PhotoCollectionViewCell: UICollectionViewCell, Reusable {
     @IBOutlet weak var imageView: UIImageView!
 
     override func awakeFromNib() {
