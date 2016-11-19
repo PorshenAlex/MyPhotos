@@ -16,6 +16,7 @@ class AlbumsViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupCollectionView()
+        self.requestPermision()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +49,11 @@ extension AlbumsViewController: Setup {
     }
     
     fileprivate func setupDataSource() {
-        `
+        PhotosService.shared.fetchAlbums {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
 }
 
@@ -83,11 +88,13 @@ extension AlbumsViewController: UICollectionViewDelegateFlowLayout {
 
 extension AlbumsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return PhotosService.shared.numberOfAllbums()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumCollectionViewCell.reuseIdentifier(), for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumCollectionViewCell.reuseIdentifier(), for: indexPath) as! AlbumCollectionViewCell
+        guard let album = PhotosService.shared.album(indexPath.row) else { return cell }
+        cell.configure(album)
         return cell
     }
 }
