@@ -25,7 +25,8 @@ class AlbumsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        let vc = segue.destination as! AlbumViewController
+        vc.album = sender as? Album
     }
 }
 
@@ -71,6 +72,7 @@ extension AlbumsViewController: RequestPermission {
     }
 }
 
+
 //MARK: - UICollectionViewDelegateFlowLayout
 
 extension AlbumsViewController: UICollectionViewDelegateFlowLayout {
@@ -79,7 +81,8 @@ extension AlbumsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showAlbum", sender: nil)
+        guard let album = PhotosService.shared.album(indexPath.row) else { return }
+        self.performSegue(withIdentifier: "showAlbum", sender: album)
     }
 }
 

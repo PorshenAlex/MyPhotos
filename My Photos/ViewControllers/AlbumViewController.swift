@@ -10,6 +10,7 @@ import UIKit
 
 class AlbumViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    var album: Album?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,9 @@ class AlbumViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        let vc = segue.destination as! PhotoViewController
+        vc.album = self.album
+        vc.selectedIndexPath = sender as? IndexPath
     }
 
 }
@@ -48,11 +51,11 @@ extension AlbumViewController: Setup {
 
 extension AlbumViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 60, height: 60)
+        return PhotoCollectionViewCell.smallSize()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showPhoto", sender: nil)
+        self.performSegue(withIdentifier: "showPhoto", sender: indexPath)
     }
 }
 
@@ -61,11 +64,14 @@ extension AlbumViewController: UICollectionViewDelegateFlowLayout {
 
 extension AlbumViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        guard self.album != nil else { return 0 }
+        return self.album!.numberOfProtos()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.reuseIdentifier(), for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.reuseIdentifier(), for: indexPath) as! PhotoCollectionViewCell
+        guard let asset = self.album!.asset(indexPath.row) else { return cell }
+        cell.configure(asset, fullScreen: false)
         return cell
     }
 }

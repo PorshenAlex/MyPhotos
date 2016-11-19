@@ -12,7 +12,8 @@ import Photos
 protocol AlbumRepresentation {
     func title() -> String
     func numberOfProtos() -> Int
-    func lastAsset() -> PHAsset? 
+    func lastAsset() -> PHAsset?
+    func asset(_ index: Int) -> PHAsset?
 }
 
 final class Album {
@@ -48,6 +49,12 @@ extension Album: AlbumRepresentation {
     internal func numberOfProtos() -> Int {
         guard self.photos != nil else { return 0 }
         return self.photos!.count
+    }
+    
+    internal func asset(_ index: Int) -> PHAsset? {
+        guard self.photos != nil else { return nil }
+        guard self.photos!.count > index else { return nil }
+        return self.photos![index] as PHAsset
     }
     
     internal func lastAsset() -> PHAsset? {
