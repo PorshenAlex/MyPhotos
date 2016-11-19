@@ -16,6 +16,8 @@
 		B808E1FA1DDE3A430093B7D7 /* AlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B808E1F81DDE3A430093B7D7 /* AlbumCollectionViewCell.xib */; };
 		B808E1FB1DDE4E2A0093B7D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E8344A1DDE20BE00267735 /* Assets.xcassets */; };
 		B808E1FD1DDE51D90093B7D7 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808E1FC1DDE51D90093B7D7 /* Reusable.swift */; };
+		B808E2001DE0723E0093B7D7 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808E1FF1DE0723E0093B7D7 /* PhotosService.swift */; };
+		B808E2051DE074E50093B7D7 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808E2041DE074E50093B7D7 /* Album.swift */; };
 		B8E834441DDE20BE00267735 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E834431DDE20BE00267735 /* AppDelegate.swift */; };
 		B8E834491DDE20BE00267735 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E834471DDE20BE00267735 /* Main.storyboard */; };
 		B8E8344E1DDE20BE00267735 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E8344C1DDE20BE00267735 /* LaunchScreen.storyboard */; };
@@ -30,6 +32,8 @@
 		B808E1F71DDE3A430093B7D7 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumCollectionViewCell.swift; path = Views/Albums/AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		B808E1F81DDE3A430093B7D7 /* AlbumCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlbumCollectionViewCell.xib; path = Views/Albums/AlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		B808E1FC1DDE51D90093B7D7 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reusable.swift; path = Views/Reusable.swift; sourceTree = "<group>"; };
+		B808E1FF1DE0723E0093B7D7 /* PhotosService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosService.swift; path = Services/PhotosService.swift; sourceTree = "<group>"; };
+		B808E2041DE074E50093B7D7 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Album.swift; path = Model/Album.swift; sourceTree = "<group>"; };
 		B8E834401DDE20BE00267735 /* My Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Photos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E834431DDE20BE00267735 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8E834481DDE20BE00267735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +71,22 @@
 			name = Album;
 			sourceTree = "<group>";
 		};
+		B808E1FE1DE071610093B7D7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B808E1FF1DE0723E0093B7D7 /* PhotosService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		B808E2011DE074870093B7D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B808E2041DE074E50093B7D7 /* Album.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		B8E834371DDE20BE00267735 = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +107,9 @@
 			isa = PBXGroup;
 			children = (
 				B8E834431DDE20BE00267735 /* AppDelegate.swift */,
+				B808E2011DE074870093B7D7 /* Model */,
 				B8E834571DDE253A00267735 /* Resurces */,
+				B808E1FE1DE071610093B7D7 /* Services */,
 				B8E834561DDE238000267735 /* Storyboards */,
 				B8E834581DDE256A00267735 /* SupportFiles */,
 				B8E834551DDE237400267735 /* ViewControllers */,
@@ -219,6 +241,8 @@
 				B808E1E81DDE35EC0093B7D7 /* AlbumViewController.swift in Sources */,
 				B808E1EA1DDE36CA0093B7D7 /* PhotoViewController.swift in Sources */,
 				B808E1E61DDE2F6E0093B7D7 /* AlbumsViewController.swift in Sources */,
+				B808E2001DE0723E0093B7D7 /* PhotosService.swift in Sources */,
+				B808E2051DE074E50093B7D7 /* Album.swift in Sources */,
 				B8E834441DDE20BE00267735 /* AppDelegate.swift in Sources */,
 				B808E1F31DDE38C80093B7D7 /* PhotoCollectionViewCell.swift in Sources */,
 				B808E1FD1DDE51D90093B7D7 /* Reusable.swift in Sources */,

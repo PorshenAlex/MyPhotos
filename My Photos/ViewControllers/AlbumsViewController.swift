@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class AlbumsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -29,6 +30,11 @@ class AlbumsViewController: UIViewController {
 
 fileprivate protocol Setup {
     func setupCollectionView()
+    func setupDataSource()
+}
+
+fileprivate protocol RequestPermission {
+    func requestPermision()
 }
 
 
@@ -40,8 +46,25 @@ extension AlbumsViewController: Setup {
         self.collectionView.dataSource = self
         self.collectionView.register(AlbumCollectionViewCell.nib(), forCellWithReuseIdentifier: AlbumCollectionViewCell.reuseIdentifier())
     }
+    
+    fileprivate func setupDataSource() {
+        `
+    }
 }
 
+
+//MARK: - RequestPermision
+
+extension AlbumsViewController: RequestPermission {
+    fileprivate func requestPermision() {
+        PHPhotoLibrary.requestAuthorization { (status) in
+            DispatchQueue.main.async {
+                guard status == .authorized else { return }
+                self.setupDataSource()
+            }
+        }
+    }
+}
 
 //MARK: - UICollectionViewDelegateFlowLayout
 
