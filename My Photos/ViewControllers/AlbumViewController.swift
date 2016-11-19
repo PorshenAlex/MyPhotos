@@ -16,6 +16,7 @@ class AlbumViewController: UIViewController {
         super.viewDidLoad()
 
         self.setupCollectionView()
+        self.setupTitle()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,16 +34,21 @@ class AlbumViewController: UIViewController {
 
 fileprivate protocol Setup {
     func setupCollectionView()
+    func setupTitle()
 }
 
 
 //MARK: - Setup
 
 extension AlbumViewController: Setup {
-    fileprivate func setupCollectionView() {
+    internal func setupCollectionView() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(PhotoCollectionViewCell.nib(), forCellWithReuseIdentifier: PhotoCollectionViewCell.reuseIdentifier())
+    }
+    
+    internal func setupTitle() {
+        self.navigationItem.title = album?.title()
     }
 }
 

@@ -35,6 +35,7 @@ class PhotoViewController: UIViewController {
 fileprivate protocol Setup {
     func setupCollectionView()
     func setupPage()
+    func setupTitle()
 }
 
 extension PhotoViewController: Setup {
@@ -49,6 +50,10 @@ extension PhotoViewController: Setup {
         self.collectionView.layoutIfNeeded()
         self.collectionView.scrollToItem(at: self.selectedIndexPath!, at: .left, animated: false)
     }
+    
+    internal func setupTitle() {
+        self.navigationItem.title = "\(self.selectedIndexPath!.row)/\(self.album!.numberOfProtos())"
+    }
 }
 
 
@@ -57,6 +62,12 @@ extension PhotoViewController: Setup {
 extension PhotoViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return self.view.bounds.size
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let index = 1 + Int(scrollView.contentOffset.x / self.view.bounds.size.width)
+        self.selectedIndexPath = IndexPath(item: index, section: 0)
+        self.setupTitle()
     }
 }
 
