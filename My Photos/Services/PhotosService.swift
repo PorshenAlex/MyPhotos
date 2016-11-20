@@ -29,7 +29,9 @@ extension PhotosService: PhotosServiceProtocol {
             let fetchResult = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
             var albums = [Album]()
             fetchResult.enumerateObjects({ (collection, count, pointer) in
-                guard collection.assetCollectionSubtype != .smartAlbumVideos else { return }
+                guard collection.assetCollectionSubtype != .smartAlbumVideos &&
+                    collection.assetCollectionSubtype != .smartAlbumSlomoVideos &&
+                    collection.assetCollectionSubtype != .smartAlbumTimelapses else { return }
                 albums.append(Album(collection))
             })
             self.albums = albums

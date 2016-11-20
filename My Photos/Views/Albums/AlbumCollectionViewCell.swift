@@ -9,6 +9,8 @@
 import UIKit
 import Photos
 
+private let aspectRation: CGFloat = 35/26
+
 class AlbumCollectionViewCell: UICollectionViewCell, Reusable {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -35,11 +37,17 @@ class AlbumCollectionViewCell: UICollectionViewCell, Reusable {
                                                 self.imageView.image = image
         }
     }
+    
+    static func size() -> CGSize {
+        let width = UIScreen.main.bounds.width / 2 - 20
+        return CGSize(width: width, height: width * aspectRation)
+    }
 }
 
 fileprivate protocol Setup {
     func setupImageView()
 }
+
 
 //MARK: - Setup
 
