@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yMs-JU-uiE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Альбомы-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AlbumsViewController" customModule="My_Photos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XKw-MT-wNk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7w3-XQ-DKD">
+                                    <size key="itemSize" width="110" height="130"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XKw-MT-wNk" secondAttribute="trailing" id="E5B-GL-ApV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XKw-MT-wNk" secondAttribute="bottom" id="fEQ-Qs-RA6"/>
+                            <constraint firstItem="XKw-MT-wNk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vqZ-oc-odB"/>
+                            <constraint firstItem="XKw-MT-wNk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="w1z-ns-NTX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Альбомы" id="PeV-ZT-SmW"/>
+                    <connections>
+                        <outlet property="collectionView" destination="XKw-MT-wNk" id="oAq-le-ked"/>
+                        <segue destination="bjk-dM-4m4" kind="show" identifier="showAlbum" id="0ac-AV-49S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="893.60000000000002" y="-561.76911544227892"/>
+        </scene>
+        <!--Album View Controller-->
+        <scene sceneID="CWK-BO-B93">
+            <objects>
+                <viewController id="bjk-dM-4m4" customClass="AlbumViewController" customModule="My_Photos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E1O-Tc-CHM"/>
+                        <viewControllerLayoutGuide type="bottom" id="X1h-dp-STQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="20g-sb-lY2">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PWK-C5-Z9j">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="SrR-gH-dF2">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PWK-C5-Z9j" secondAttribute="trailing" id="Rtq-BT-lIP"/>
+                            <constraint firstItem="PWK-C5-Z9j" firstAttribute="top" secondItem="E1O-Tc-CHM" secondAttribute="bottom" id="XZK-Qo-bjv"/>
+                            <constraint firstItem="PWK-C5-Z9j" firstAttribute="leading" secondItem="20g-sb-lY2" secondAttribute="leading" id="aS0-Ld-VoO"/>
+                            <constraint firstItem="X1h-dp-STQ" firstAttribute="top" secondItem="PWK-C5-Z9j" secondAttribute="bottom" id="hDC-Xa-i7Q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="PWK-C5-Z9j" id="3DW-EM-khf"/>
+                        <segue destination="c9f-MS-F8U" kind="show" identifier="showPhoto" id="qqm-QQ-HLy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sz7-f7-Xbi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1785" y="-561"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="xgQ-ra-jOH">
+            <objects>
+                <viewController id="c9f-MS-F8U" customClass="PhotoViewController" customModule="My_Photos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4rN-87-fmD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lab-ta-9pB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JhV-Mn-6sJ">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6iB-Bp-vF4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Fg9-vk-WoX">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6iB-Bp-vF4" firstAttribute="top" secondItem="4rN-87-fmD" secondAttribute="bottom" id="8Ik-r7-7R2"/>
+                            <constraint firstAttribute="trailing" secondItem="6iB-Bp-vF4" secondAttribute="trailing" id="MzO-ee-JWP"/>
+                            <constraint firstItem="6iB-Bp-vF4" firstAttribute="leading" secondItem="JhV-Mn-6sJ" secondAttribute="leading" id="Qn3-6q-SE0"/>
+                            <constraint firstItem="Lab-ta-9pB" firstAttribute="top" secondItem="6iB-Bp-vF4" secondAttribute="bottom" id="uQc-RT-xPN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="6iB-Bp-vF4" id="FgN-d9-Obz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mCI-dJ-FCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2658" y="-561"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="len-Zf-cjw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yMs-JU-uiE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="c71-jX-z5G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="rGj-W4-FDD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b1N-gV-i4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="-560.86956521739137"/>
+        </scene>
+    </scenes>
+</document>

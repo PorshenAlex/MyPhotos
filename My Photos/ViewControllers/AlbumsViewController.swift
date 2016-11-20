@@ -62,7 +62,7 @@ extension AlbumsViewController: Setup {
     }
     
     fileprivate func setupUauthorized() {
-        
+        self.showUauthorizedAlert()
     }
 }
 
@@ -73,7 +73,7 @@ extension AlbumsViewController: RequestPermission {
     fileprivate func requestPermision() {
         PHPhotoLibrary.requestAuthorization { (status) in
             DispatchQueue.main.async {
-                guard status == .authorized else { self.showUauthorizedAlert(); return }
+                guard status == .authorized else { self.setupUauthorized(); return }
                 self.setupDataSource()
             }
         }
