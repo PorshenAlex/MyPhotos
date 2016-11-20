@@ -39,6 +39,10 @@ fileprivate protocol RequestPermission {
     func requestPermision()
 }
 
+fileprivate protocol Alerts {
+    func showUauthorizedAlert()
+}
+
 
 //MARK: - Setup
 
@@ -56,6 +60,10 @@ extension AlbumsViewController: Setup {
             }
         }
     }
+    
+    fileprivate func setupUauthorized() {
+        
+    }
 }
 
 
@@ -65,10 +73,27 @@ extension AlbumsViewController: RequestPermission {
     fileprivate func requestPermision() {
         PHPhotoLibrary.requestAuthorization { (status) in
             DispatchQueue.main.async {
-                guard status == .authorized else { return }
+                guard status == .authorized else { self.showUauthorizedAlert(); return }
                 self.setupDataSource()
             }
         }
+    }
+}
+
+
+//MARK: - Alerts
+
+extension AlbumsViewController: Alerts {
+    internal func showUauthorizedAlert() {
+        let alert = UIAlertController(title: "Доступ запрещен", message: "Для работы приложения нужен доступ к фотографиям", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Настройки доступа", style: .default) { (action) in
+            UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+            exit(0)
+        })
+        alert.addAction(UIAlertAction(title: "Выход", style: .destructive) { (action) in
+            exit(0)
+        })
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
