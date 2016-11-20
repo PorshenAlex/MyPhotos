@@ -12,6 +12,7 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var album: Album?
     var selectedIndexPath: IndexPath?
+    var isFirstAppear = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +47,17 @@ extension PhotoViewController: Setup {
     }
     
     internal func setupPage() {
+        guard self.isFirstAppear else { return}
+        self.isFirstAppear = false
         self.collectionView.setNeedsLayout()
         self.collectionView.layoutIfNeeded()
         self.collectionView.scrollToItem(at: self.selectedIndexPath!, at: .left, animated: false)
+        guard self.selectedIndexPath?.row == 0 else { return }
+        self.setupTitle()
     }
     
     internal func setupTitle() {
-        self.navigationItem.title = "\(self.selectedIndexPath!.row)/\(self.album!.numberOfProtos())"
+        self.navigationItem.title = "\(self.selectedIndexPath!.row + 1)/\(self.album!.numberOfProtos())"
     }
 }
 
@@ -65,7 +70,7 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let index = 1 + Int(scrollView.contentOffset.x / self.view.bounds.size.width)
+        let index = Int(scrollView.contentOffset.x / self.view.bounds.size.width)
         self.selectedIndexPath = IndexPath(item: index, section: 0)
         self.setupTitle()
     }
