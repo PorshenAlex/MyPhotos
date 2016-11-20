@@ -19,11 +19,12 @@ class PhotoCollectionViewCell: UICollectionViewCell, Reusable {
     
     func configure(_ asset:PHAsset, fullScreen: Bool) {
         self.imageView.contentMode = fullScreen ? .scaleAspectFit : .scaleAspectFill
+        weak var weakSelf = self
         PHImageManager.default().requestImage(for: asset,
                                               targetSize: self.imageView.frame.size,
                                               contentMode: .aspectFill,
                                               options: nil) { (image, info) in
-                                                self.imageView.image = image
+                                                weakSelf?.imageView.image = image
         }
     }
     

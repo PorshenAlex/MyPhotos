@@ -25,6 +25,7 @@ final class PhotosService {
 
 extension PhotosService: PhotosServiceProtocol {
     func fetchAlbums(_ completion: @escaping () -> Void) {
+        weak var weakSelf = self
         DispatchQueue.global(qos: .default).async {
             let fetchResult = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
             var albums = [Album]()
@@ -34,7 +35,7 @@ extension PhotosService: PhotosServiceProtocol {
                     collection.assetCollectionSubtype != .smartAlbumTimelapses else { return }
                 albums.append(Album(collection))
             })
-            self.albums = albums
+            weakSelf?.albums = albums
             completion()
         }
     }

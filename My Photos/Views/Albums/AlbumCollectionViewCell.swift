@@ -30,11 +30,12 @@ class AlbumCollectionViewCell: UICollectionViewCell, Reusable {
         self.titleLabel.text = album.title()
         self.countLabel.text = "\(album.numberOfProtos())"
         guard let asset = album.lastAsset() else { return }
+        weak var weakSelf = self
         PHImageManager.default().requestImage(for: asset,
                                               targetSize: self.imageView.frame.size,
                                               contentMode: .aspectFill,
                                               options: nil) { (image, info) in
-                                                self.imageView.image = image
+                                                weakSelf?.imageView.image = image
         }
     }
     
